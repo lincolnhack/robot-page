@@ -56,8 +56,8 @@ function right(robotId) {
 
 
 var nxt1_id, nxt2_id, ev3_id, roomba_id;
-document.onload = function() {
+window.onload = function() {
   createRobot('nxt1', 'COM3', (err, id) => { nxt1_id = id; });
   createRobot('nxt1', 'COM6', (err, id) => { nxt2_id = id; });
   createRobot('ev3', '', (err, id) => { ev3_id = id; });
-}
+};
