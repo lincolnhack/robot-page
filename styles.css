@@ -1,0 +1,25 @@
+body {
+    display: flex;
+}
+
+body > div {
+    margin-right: 2rem;
+}
+
+.buttons {
+    position: relative;
+    width: 14rem;
+}
+
+.buttons button {
+    width: 48%;
+    height: 3rem;
+}
+
+.buttons button:nth-child(1) {
+    width: 100%;
+}
+
+.buttons button:nth-child(4) {
+    width: 100%;
+}
