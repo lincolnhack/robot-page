@@ -1,4 +1,4 @@
-function post(url) {
+function post(url, body) {
   var xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
     xhr.onreadystatechange = function() {
@@ -11,8 +11,12 @@ function post(url) {
       }
     };
     xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send();
+    if (body) {
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(body);
+    } else {
+      xhr.send();
+    }
   });
 }
 
