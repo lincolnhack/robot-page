@@ -11,6 +11,7 @@ function post(url) {
       }
     };
     xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send();
   });
 }
@@ -59,5 +60,4 @@ document.onload = function() {
   createRobot('nxt1', 'COM3', (id) => { nxt1_id = id; });
   createRobot('nxt1', 'COM6', (id) => { nxt2_id = id; });
   createRobot('ev3', '', (id) => { ev3_id = id; });
-
 }
