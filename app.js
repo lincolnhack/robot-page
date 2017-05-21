@@ -3,7 +3,7 @@ function post(url, body) {
   return new Promise((resolve, reject) => {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
+        if (xhr.status >= 200 && xhr.status < 300) {
           resolve(JSON.parse(xhr.responseText));
         } else {
           reject(new Error(`Unexpected status code ${xhr.status}`));
