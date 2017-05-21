@@ -33,7 +33,7 @@ function createRobot(type, comport, callback) {
     .then((body) => callback(null, body.id));
 }
 
-function connectRobot(robotId, callback) {
+function connectRobot(robotId) {
   console.log('connecting', robotId);
   post(`http://localhost:5000/robots/${robotId}/connect`);
 }
@@ -61,7 +61,7 @@ function right(robotId) {
 
 var nxt1_id, nxt2_id, ev3_id, roomba_id;
 window.onload = function() {
-  createRobot('nxt1', 'COM3', (err, id) => { nxt1_id = id; });
-  createRobot('nxt1', 'COM6', (err, id) => { nxt2_id = id; });
+  createRobot('nxt1', 'COM3', (err, id) => { nxt1_id = id; connectRobot(id); });
+  createRobot('nxt1', 'COM6', (err, id) => { nxt2_id = id; connectRobot(id); });
   createRobot('ev3', '', (err, id) => { ev3_id = id; });
 };
