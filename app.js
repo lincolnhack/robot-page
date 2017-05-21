@@ -4,7 +4,7 @@ function post(url, body) {
     xhr.onreadystatechange = function() {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status >= 200 && xhr.status < 300) {
-          resolve(JSON.parse(xhr.responseText));
+          resolve(xhr.responseText ? JSON.parse(xhr.responseText) : null);
         } else {
           reject(new Error(`Unexpected status code ${xhr.status}`));
         }
